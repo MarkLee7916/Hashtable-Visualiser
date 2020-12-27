@@ -5,10 +5,11 @@ const enum ViewMessages {
   Clear,
 }
 
+const isWideScreen = window.matchMedia("(min-width: 992px)").matches;
+
 class View {
   private arrayLength: number;
   private readonly notifyController: (message: ViewMessages, arg: any) => void;
-  private readonly ARRAY_WIDTH: number = 1500;
 
   constructor(
     defaultLength: number,
@@ -161,21 +162,21 @@ class View {
     const array = this.getArrayinDOM(document.querySelector("#array"));
     const row = document.createElement("tr");
 
-    array.style.width = `${this.ARRAY_WIDTH}px`;
     array.append(row);
+    array.style.height = `${screen.width / this.arrayLength}px`;
 
     for (let i = 0; i < this.arrayLength; i++) {
-      row.append(this.createCellInDOM(i));
+      row.append(this.createCellInDOM());
     }
   }
 
-  private createCellInDOM(index: number): HTMLTableCellElement {
+  private createCellInDOM(): HTMLTableCellElement {
     const newCell = document.createElement("td");
+    const fontDensity = isWideScreen ? 500 : 250;
 
-    newCell.style.width = `${this.ARRAY_WIDTH / this.arrayLength}px`;
-    newCell.style.height = `${this.ARRAY_WIDTH / this.arrayLength}px`;
-    newCell.style.fontSize = `${(this.ARRAY_WIDTH / this.arrayLength) * 4}%`;
     newCell.className = "cell";
+    newCell.style.height = `${window.innerWidth / this.arrayLength}px`;
+    newCell.style.fontSize = `${fontDensity / this.arrayLength}px`;
 
     return newCell;
   }

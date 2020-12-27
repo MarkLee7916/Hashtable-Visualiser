@@ -4,7 +4,7 @@
   <head>
     <title>HashTable Visualiser</title>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="hashtableVis.css" />
+    <link rel="stylesheet" href="index.css" />
   </head>
 
   <body>
@@ -12,42 +12,40 @@
       <header>
         <nav>
           <ul id="menu">
-            <span class="menu-section">
+            <span>
               <button class="menu-button" id="search">Search For Key</button>
               <input
                 type="number"
                 class="input-field"
                 id="search-input"
-                min="0"
-                max="99"
+                min="-9999"
+                max="9999"
               />
             </span>
 
-            <span class="menu-section">
+            <span>
               <button class="menu-button" id="insert">Insert Key</button>
               <input
                 type="number"
                 class="input-field"
                 id="insert-input"
-                min="0"
-                max="99"
+                min="-9999"
+                max="9999"
               />
             </span>
 
-            <span class="menu-section">
+            <span>
               <button class="menu-button" id="delete">Delete key</button>
               <input
                 type="number"
                 class="input-field"
                 id="delete-input"
-                min="0"
-                max="99"
+                min="-9999"
+                max="9999"
               />
             </span>
 
-            <span class="menu-section">
-              <button class="menu-button" id="clear">Clear</button>
-            </span>
+            <button class="menu-button" id="clear">Clear</button>
           </ul>
         </nav>
       </header>

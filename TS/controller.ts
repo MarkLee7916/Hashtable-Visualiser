@@ -1,5 +1,6 @@
-const hashtable = new HashTable(8, readMessageFromModel);
-const view = new View(8, readMessageFromView);
+const LENGTH = 8;
+const hashtable = new HashTable(LENGTH, readMessageFromModel);
+const view = new View(LENGTH, readMessageFromView);
 
 async function readMessageFromView(
   message: ViewMessages,

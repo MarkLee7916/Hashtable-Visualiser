@@ -34,9 +34,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var isWideScreen = window.matchMedia("(min-width: 992px)").matches;
 var View = /** @class */ (function () {
     function View(defaultLength, notify) {
-        this.ARRAY_WIDTH = 1500;
         this.arrayLength = defaultLength;
         this.notifyController = notify;
         this.initialiseView();
@@ -194,18 +194,18 @@ var View = /** @class */ (function () {
     View.prototype.createArrayInDOM = function () {
         var array = this.getArrayinDOM(document.querySelector("#array"));
         var row = document.createElement("tr");
-        array.style.width = this.ARRAY_WIDTH + "px";
         array.append(row);
+        array.style.height = screen.width / this.arrayLength + "px";
         for (var i = 0; i < this.arrayLength; i++) {
-            row.append(this.createCellInDOM(i));
+            row.append(this.createCellInDOM());
         }
     };
-    View.prototype.createCellInDOM = function (index) {
+    View.prototype.createCellInDOM = function () {
         var newCell = document.createElement("td");
-        newCell.style.width = this.ARRAY_WIDTH / this.arrayLength + "px";
-        newCell.style.height = this.ARRAY_WIDTH / this.arrayLength + "px";
-        newCell.style.fontSize = (this.ARRAY_WIDTH / this.arrayLength) * 4 + "%";
+        var fontDensity = isWideScreen ? 500 : 250;
         newCell.className = "cell";
+        newCell.style.height = window.innerWidth / this.arrayLength + "px";
+        newCell.style.fontSize = fontDensity / this.arrayLength + "px";
         return newCell;
     };
     View.prototype.getCellInDOM = function (index) {

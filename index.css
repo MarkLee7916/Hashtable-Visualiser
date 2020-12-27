@@ -1,0 +1,62 @@
+#page {
+  font-family: Helvetica-Neue, Helvetica, sans-serif;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+}
+
+header {
+  background: black;
+  text-align: center;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+header::before,
+header::after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+#menu {
+  display: flex;
+  justify-content: space-around;
+}
+
+.menu-button {
+  border: none;
+  background-color: black;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  outline: none;
+}
+
+.menu-button:hover {
+  opacity: 0.5;
+}
+
+.color-codes {
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+#array {
+  text-align: center;
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+  overflow: hidden;
+  margin-top: 200px;
+}
+
+.cell {
+  border: 1px solid gray;
+  overflow: hidden;
+}
